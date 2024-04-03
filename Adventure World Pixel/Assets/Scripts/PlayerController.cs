@@ -9,8 +9,10 @@ public class PlayerController : MonoBehaviour
     public float walkSpeed = 7f;
     public float runSpeed = 10f;
     public float jumpPower = 18f;
+    private bool isDead;
 
     Vector2 moveInput;
+    public GameMagager gameMagager;
 
     TouchingDirection touchingDirection;
     Damage damage1;
@@ -134,6 +136,16 @@ public class PlayerController : MonoBehaviour
             IsMoving = false;
         }
 
+    }
+    public void Dead()
+    {
+        if (damage1.Health <=0 && !isDead)
+        {
+            isDead = true;
+            gameObject.SetActive(false);
+            gameMagager.GameOver();
+
+        }
     }
 
     private void SetFacingDIrection(Vector2 moveInput)

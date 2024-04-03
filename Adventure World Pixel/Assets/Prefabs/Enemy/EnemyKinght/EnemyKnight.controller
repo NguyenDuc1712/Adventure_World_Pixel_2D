@@ -106,6 +106,24 @@ MonoBehaviour:
   updateOnStateMchine: 0
   valueOnEnter: 1
   valueOnExit: 0
+--- !u!114 &-6715611121863506987
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81c3cf776697b6640af50ecfb60160bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playSound: {fileID: 8300000, guid: c3df833de0b79da44b99934f882c7727, type: 3}
+  volume: 10
+  playOnEnter: 1
+  playOnExit: 0
+  playAfterDelay: 0
+  playDelay: 0.25
 --- !u!1102 &-5942448193872228283
 AnimatorState:
   serializedVersion: 6
@@ -121,6 +139,7 @@ AnimatorState:
   m_StateMachineBehaviours:
   - {fileID: -3557289295416980675}
   - {fileID: -6880111493825848572}
+  - {fileID: -3428394779210292375}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -202,6 +221,24 @@ MonoBehaviour:
   updateOnStateMchine: 0
   valueOnEnter: 0
   valueOnExit: 1
+--- !u!114 &-3428394779210292375
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81c3cf776697b6640af50ecfb60160bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playSound: {fileID: 8300000, guid: fb6fa3ee3f450f24984f29d78ecfc3a9, type: 3}
+  volume: 8
+  playOnEnter: 1
+  playOnExit: 0
+  playAfterDelay: 0
+  playDelay: 0
 --- !u!114 &-1670141463163911834
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -235,55 +272,55 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: isGrounded
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: isCeiling
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: tarGet
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: canMove
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 1
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: isAlive
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 1
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: lockVelocity
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: hit
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: attackCooldown
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -367,6 +404,7 @@ AnimatorState:
   - {fileID: 6963804813323787386}
   m_StateMachineBehaviours:
   - {fileID: -1670141463163911834}
+  - {fileID: -6715611121863506987}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -393,6 +431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c91f2a2d5e439b549a40e2713225e99c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  delayFade: 0
   fadeTimer: 0.8
 --- !u!1101 &2394958535721013202
 AnimatorStateTransition:
@@ -461,6 +500,7 @@ AnimatorState:
   m_StateMachineBehaviours:
   - {fileID: 280081881053337323}
   - {fileID: 2101646783614939170}
+  - {fileID: 8648392815872684241}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -517,6 +557,24 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &8648392815872684241
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81c3cf776697b6640af50ecfb60160bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playSound: {fileID: 8300000, guid: ed05a93c9e9ba9b458b278ad48b3a7ab, type: 3}
+  volume: 5
+  playOnEnter: 1
+  playOnExit: 0
+  playAfterDelay: 0
+  playDelay: 0.25
 --- !u!1109 &8996087671577879252
 AnimatorTransition:
   m_ObjectHideFlags: 1

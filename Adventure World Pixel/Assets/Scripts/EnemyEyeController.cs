@@ -133,4 +133,9 @@ public class EnemyEyeController : MonoBehaviour
             rb.velocity = new Vector2(0, rb.velocity.y);
         deathColleder.enabled = true;
     }
+    public void OnHit(int damage, Vector2 knockback)
+    {
+
+        rb.velocity = new Vector2(knockback.x, rb.velocity.y + knockback.y);
+    }
 } 

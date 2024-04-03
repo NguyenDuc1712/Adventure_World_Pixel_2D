@@ -214,6 +214,12 @@ MonoBehaviour:
   damageableHit:
     m_PersistentCalls:
       m_Calls: []
+  death:
+    m_PersistentCalls:
+      m_Calls: []
+  healChange:
+    m_PersistentCalls:
+      m_Calls: []
   _maxHealth: 100
   _health: 100
   _isAlive: 1
@@ -307,8 +313,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e589da4d7969d2840b15092e143d878e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 10
-  knockBack: {x: 15, y: 0}
+  attackDamage: 25
+  knockBack: {x: 10, y: 0}
 --- !u!1 &8136102284484402203
 GameObject:
   m_ObjectHideFlags: 0

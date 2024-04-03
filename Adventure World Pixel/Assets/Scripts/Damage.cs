@@ -7,7 +7,10 @@ public class Damage : MonoBehaviour
 {
     public UnityEvent<int, Vector2> damageableHit;
     public UnityEvent death;
+    public UnityEvent<int, int> healChange;
+
     Animator animator;
+
     [SerializeField]
     private int _maxHealth = 100;
     public int MaxHealth
@@ -32,9 +35,12 @@ public class Damage : MonoBehaviour
         set
         {
             _health = value;
+            healChange?.Invoke(_health, MaxHealth);
             if (_health <= 0)
             {
                 IsAlive = false;
+
+
             }
         }
     }
@@ -57,12 +63,12 @@ public class Damage : MonoBehaviour
         {
             _isAlive = value;
             animator.SetBool(AnimationString.isAlive, value);
-            if(value == false)
+            if (value == false)
             {
-                death .Invoke();
+                death.Invoke();
             }
 
-            
+
         }
     }
     //Vận tốc không nên thay đổi trong khi điều này đúng nhưng cần được các thành phần vật lý khác như => PlayerController
@@ -118,9 +124,9 @@ public class Damage : MonoBehaviour
     }
     public void Heal(int healthRectore)
     {
-        if(IsAlive)
+        if (IsAlive)
         {
-            int maxHeal = Mathf.Max(MaxHealth- Health, 0);
+            int maxHeal = Mathf.Max(MaxHealth - Health, 0);
             int actuaHeal = Mathf.Min(maxHeal, healthRectore);
             Health += actuaHeal;
             CharacterAction.characterHeal(gameObject, actuaHeal); ;

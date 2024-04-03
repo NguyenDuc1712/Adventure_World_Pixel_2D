@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ZoneAttack : MonoBehaviour
 {
-    public int attackDamage;
+    public int attackDamage = 10;
     public Vector2 knockBack = Vector2.zero;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -17,6 +17,11 @@ public class ZoneAttack : MonoBehaviour
             Vector2 deliveredKnockback = transform.parent.localScale.x > 0 ? knockBack : new Vector2(-knockBack.x, knockBack.y);
             // danh trung muc tieu
             bool gotHit = damage.Hit(attackDamage, deliveredKnockback);
+            if(gotHit)
+            {
+                Debug.Log(collision.name + " Hit For " + attackDamage);
+                    
+            }
         }
     }
 }
